@@ -1,0 +1,18 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predictive Maintenance</title>
+</head>
+<body>
+    <h1>Predict Engine Failure</h1>
+    
+    <form method="POST" action="/predict_ui">
+        {% for sensor in sensors %}
+            <div class="field">
+                <label>{{ sensor.replace('_', ' ') | capitalize }}</label>
+                <input type="number" step="any" name="{{ sensor }}" required>
+            </div>
+        {% endfor %}
+        <button type="submit">Predict</button>
+    </form>
